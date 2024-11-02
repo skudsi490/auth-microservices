@@ -1,0 +1,55 @@
+services:
+
+  mongo-db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"  
+    networks:
+      - werkstudent_network
+
+  auth-service:
+    build: ./services/auth-service
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./services/auth-service/.env
+    depends_on:
+      - notification-service
+      - request-service
+    networks:
+      - werkstudent_network
+    volumes:
+      - ./models:/app/models  
+
+  notification-service:
+    build: ./services/notification-service
+    ports:
+      - "4001:4001"
+    env_file:
+      - ./services/notification-service/.env
+    networks:
+      - werkstudent_network
+
+  request-service:
+    build: ./services/request-service
+    ports:
+      - "4002:4002"
+    env_file:
+      - ./services/request-service/.env
+    depends_on:
+      - notification-service
+    networks:
+      - werkstudent_network
+    volumes:
+      - ./models:/app/models  
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - werkstudent_network
+
+networks:
+  werkstudent_network:
+    driver: bridge
