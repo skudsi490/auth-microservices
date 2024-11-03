@@ -21,7 +21,7 @@ This application is a microservices-based Request Management System that include
 
 ### Video Walkthrough
 
-To see a video demonstration of the application in action, [click here to view the screen capture](https://github.com/skudsi490/auth-microservices/blob/main/screen-capture.webm?raw=true).
+To see a video demonstration of the application in action, [click here to view the screen capture](https://github.com/skudsi490/auth-microservices/blob/main/Screen-Capture.mp4?raw=true).
 
 
 ---
