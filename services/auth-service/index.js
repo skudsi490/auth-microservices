@@ -27,7 +27,7 @@ passport.use(new GoogleStrategy({
     console.log(`Received login for email: ${email}`);
 
     // Define the supervisor email explicitly
-    const SUPERVISOR_EMAIL = 'skudsi490@gmail.com';  // Set the exact supervisor email here, I used my email for example
+    const SUPERVISOR_EMAIL = '';  // Set the exact supervisor email here, I used my email for example
     const isSupervisor = (email === SUPERVISOR_EMAIL);
     const expectedRole = isSupervisor ? 'supervisor' : 'user';
 
